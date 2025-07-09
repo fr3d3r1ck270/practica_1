@@ -1,0 +1,50 @@
+------------------------------------------------------------------------------
+def menu():
+    print("-----Tienda de Peliculas-----")
+    print("1. Guardar")
+    print("2. Mostrar")
+    print("3. Buscar")
+    print("4. Eliminar")
+    print("5. Salir")
+
+
+def guardar(id,nombre,publicacion,peliculas_lista):        
+    pelicula = {
+        "id":id,
+        "nombre":nombre.lower(),
+        "publicacion":publicacion.lower()
+    }
+
+    peliculas_lista.append(pelicula)
+
+def mostrar(peliculas_lista):
+    for pel in peliculas_lista:
+        print(f"Pelicula: {pel['nombre']} - Año: {pel['publicacion']}")
+----------------------------------------------------------------------------------------------
+
+from funciones import guardar,menu,mostrar
+
+peliculas = []
+pelicula = {}
+
+
+while True:
+    menu()    
+    opt = int(input("Ingrese una opcion: "))
+    if opt == 1:        
+        cantidad = int(input("Ingrese el n° de peliculas a guardar: "))
+        for i in range(1,cantidad+1):
+            nombre = input("Ingrese el nombre de la pelicula: ")
+            publicacion = input("Ingrese el año de publicacion : ")
+            guardar(i,nombre,publicacion,peliculas)
+        print("Guardado con exito-----------")
+    
+        
+    elif opt == 2:
+        mostrar(peliculas)
+    elif opt == 3:
+        print("Buscar")
+    elif opt == 4:
+        print("Eliminar")
+    elif opt == 5:
+        print("Salir")
